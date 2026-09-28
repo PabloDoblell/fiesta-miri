@@ -1,314 +1,298 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es-MX">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro & Detalles - Fiesta Miri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #ff6d21;
+      --fuchsia: #f657bd;
+      --purple: #c95cec;
+      --bg: #f5f6f6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+      background-color: var(--bg);
+      color: #333;
+      padding: 20px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 2px dashed var(--fuchsia);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: var(--purple);
+      margin-top: 0;
+    }
+
+    .section {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+      color: var(--orange);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--fuchsia);
+    }
+
+    button, .btn-wa {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 14px;
+      margin-top: 18px;
+      background: var(--orange);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 0 #c54a12;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    button:hover, .btn-wa:hover {
+      filter: saturate(1.1);
+      transform: translateY(-2px);
+    }
+
+    .btn-wa {
+      background: #25D366;
+      box-shadow: 0 4px 0 #1da851;
+      margin-top: 10px;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 10px;
+      border: 2px solid var(--purple);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .admin-sec {
+      background: #fdf5fc;
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--purple);
+      color: white;
+    }
+
+    .alert-msg {
+      color: #27ae60;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+      display: none;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="es-MX"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Registro &amp; Detalles - Fiesta Miri&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--orange: #ff6d21;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--fuchsia: #f657bd;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--purple: #c95cec;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--bg: #f5f6f6;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>* { box-sizing: border-box; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Fredoka', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 500px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 25px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 30px rgba(0,0,0,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 2px dashed var(--fuchsia);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1, h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--purple);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 25px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid #eee;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>label {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--orange);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>input, select {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid #e0e0e0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: inherit;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outline: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: border-color 0.2s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>input:focus, select:focus {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-color: var(--fuchsia);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>button, .btn-wa {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--orange);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 4px 0 #c54a12;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: transform 0.1s, box-shadow 0.1s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>button:hover, .btn-wa:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>filter: saturate(1.1);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-2px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-wa {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #25D366;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 4px 0 #1da851;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.map-container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 220px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid var(--purple);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>iframe {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.admin-sec {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fdf5fc;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>table {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-collapse: collapse;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>th, td {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: left;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>th {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: var(--purple);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.alert-msg {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #27ae60;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Confirmación de Asistencia&lt;/h1&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- FORMULARIO DE REGISTRO --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;form id="rsvpForm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="nombre"&gt;Nombre Completo:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="nombre" placeholder="Ej. Juan Pérez" required&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="personas"&gt;Número de Personas:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="number" id="personas" min="1" max="10" value="1" required&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="hora"&gt;Hora Estimada de Llegada:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="time" id="hora" required&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="submit"&gt;CONFIRMAR REGISTRO&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="alertMsg" class="alert-msg"&gt;¡Gracias! Tu registro ha sido guardado.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- MAPA GOOGLE MAPS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Ubicación del Evento&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="font-size: 14px; text-align: center;"&gt;Camino de la Amistad 171, Campestre Aragón, GAM - CDMX&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="map-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;iframe<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.383792078652!2d-99.07187122394787!3d19.482087981807494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fb1b642aa371%3A0xb231713d78c3b7a5!2sCamino%20a%20la%20Amistad%20171%2C%20Campestre%20Arag%C3%B3n%2C%20Gustavo%20A.%20Madero%2C%2007520%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx"<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>allowfullscreen=""<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>loading="lazy"<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>referrerpolicy="no-referrer-when-downgrade"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/iframe&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- CONTACTO POR WHATSAPP --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section" style="border-bottom: none;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;¿Tienes alguna duda?&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Reemplaza '5215500000000' por el número real del anfitrión con código de país --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://wa.me/5215500000000?text=Hola,%20tengo%20una%20duda%20sobre%20la%20fiesta%20sorpresa%20de%20Miri" target="_blank" class="btn-wa"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Contactar al Anfitrión por WhatsApp</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- PANEL DE ADMINISTRADOR --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="admin-sec"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button type="button" id="toggleAdminBtn" style="background: var(--purple); box-shadow: 0 4px 0 #8c3bb4;"&gt;Acceso Administrador&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="adminPanel" style="display: none; margin-top: 15px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Lista de Asistentes Confirmados&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;table id="asistentesTable"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;th&gt;Nombre&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;th&gt;Personas&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;th&gt;Hora&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Se llena dinámicamente --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="button" id="clearDataBtn" style="background: #e74c3c; box-shadow: 0 4px 0 #962d22; margin-top: 10px;"&gt;Limpiar Datos&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Manejo del envío del formulario</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const form = document.getElementById('rsvpForm');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const alertMsg = document.getElementById('alertMsg');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>form.addEventListener('submit', (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>e.preventDefault();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>const registro = {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>nombre: document.getElementById('nombre').value,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>personas: document.getElementById('personas').value,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>hora: document.getElementById('hora').value</p>
-<p class="p1"><span class="Apple-converted-space">    </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Obtener lista previa o inicializar vacía</p>
-<p class="p1"><span class="Apple-converted-space">    </span>let registros = JSON.parse(localStorage.getItem('registrosMiri')) || [];</p>
-<p class="p1"><span class="Apple-converted-space">    </span>registros.push(registro);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Guardar en localStorage</p>
-<p class="p1"><span class="Apple-converted-space">    </span>localStorage.setItem('registrosMiri', JSON.stringify(registros));</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Mostrar mensaje de éxito y limpiar campos</p>
-<p class="p1"><span class="Apple-converted-space">    </span>alertMsg.style.display = 'block';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>form.reset();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>setTimeout(() =&gt; { alertMsg.style.display = 'none'; }, 4000);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Actualizar tabla si el panel admin está abierto</p>
-<p class="p1"><span class="Apple-converted-space">    </span>cargarTablaAdmin();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Lógica del Panel Administrador</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const toggleAdminBtn = document.getElementById('toggleAdminBtn');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const adminPanel = document.getElementById('adminPanel');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const clearDataBtn = document.getElementById('clearDataBtn');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>toggleAdminBtn.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (adminPanel.style.display === 'none') {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const password = prompt('Ingresa la contraseña de administrador:');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>// Contraseña predeterminada: 1234</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (password === '1234') {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>adminPanel.style.display = 'block';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>cargarTablaAdmin();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>} else if (password !== null) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>alert('Contraseña incorrecta');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>adminPanel.style.display = 'none';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>function cargarTablaAdmin() {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const tbody = document.querySelector('#asistentesTable tbody');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>tbody.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const registros = JSON.parse(localStorage.getItem('registrosMiri')) || [];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (registros.length === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>tbody.innerHTML = '&lt;tr&gt;&lt;td colspan="3" style="text-align:center;"&gt;Sin registros aún&lt;/td&gt;&lt;/tr&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>registros.forEach(reg =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const tr = document.createElement('tr');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>tr.innerHTML = `&lt;td&gt;${reg.nombre}&lt;/td&gt;&lt;td&gt;${reg.personas}&lt;/td&gt;&lt;td&gt;${reg.hora}&lt;/td&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>tbody.appendChild(tr);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>clearDataBtn.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (confirm('¿Estás seguro de que deseas borrar todos los registros?')) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>localStorage.removeItem('registrosMiri');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cargarTablaAdmin();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<div class="container">
+  <h1>Confirmación de Asistencia</h1>
+
+  <!-- FORMULARIO DE REGISTRO -->
+  <div class="section">
+    <form id="rsvpForm">
+      <label for="nombre">Nombre Completo:</label>
+      <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+
+      <label for="personas">Número de Personas:</label>
+      <input type="number" id="personas" min="1" max="10" value="1" required>
+
+      <label for="hora">Hora Estimada de Llegada:</label>
+      <input type="time" id="hora" required>
+
+      <button type="submit">CONFIRMAR REGISTRO</button>
+      <div id="alertMsg" class="alert-msg">¡Gracias! Tu registro ha sido guardado.</div>
+    </form>
+  </div>
+
+  <!-- MAPA GOOGLE MAPS -->
+  <div class="section">
+    <h2>Ubicación del Evento</h2>
+    <p style="font-size: 14px; text-align: center;">Camino de la Amistad 171, Campestre Aragón, GAM - CDMX</p>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.383792078652!2d-99.07187122394787!3d19.482087981807494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fb1b642aa371%3A0xb231713d78c3b7a5!2sCamino%20a%20la%20Amistad%20171%2C%20Campestre%20Arag%C3%B3n%2C%20Gustavo%20A.%20Madero%2C%2007520%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- CONTACTO POR WHATSAPP -->
+  <div class="section" style="border-bottom: none;">
+    <h2>¿Tienes alguna duda?</h2>
+    <!-- Reemplaza '5215500000000' por el número real del anfitrión con código de país -->
+    <a href="https://wa.me/5215500000000?text=Hola,%20tengo%20una%20duda%20sobre%20la%20fiesta%20sorpresa%20de%20Miri" target="_blank" class="btn-wa">
+      Contactar al Anfitrión por WhatsApp
+    </a>
+  </div>
+
+  <!-- PANEL DE ADMINISTRADOR -->
+  <div class="admin-sec">
+    <button type="button" id="toggleAdminBtn" style="background: var(--purple); box-shadow: 0 4px 0 #8c3bb4;">Acceso Administrador</button>
+    <div id="adminPanel" style="display: none; margin-top: 15px;">
+      <h3>Lista de Asistentes Confirmados</h3>
+      <table id="asistentesTable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Personas</th>
+            <th>Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Se llena dinámicamente -->
+        </tbody>
+      </table>
+      <button type="button" id="clearDataBtn" style="background: #e74c3c; box-shadow: 0 4px 0 #962d22; margin-top: 10px;">Limpiar Datos</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Manejo del envío del formulario
+  const form = document.getElementById('rsvpForm');
+  const alertMsg = document.getElementById('alertMsg');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const registro = {
+      nombre: document.getElementById('nombre').value,
+      personas: document.getElementById('personas').value,
+      hora: document.getElementById('hora').value
+    };
+
+    // Obtener lista previa o inicializar vacía
+    let registros = JSON.parse(localStorage.getItem('registrosMiri')) || [];
+    registros.push(registro);
+
+    // Guardar en localStorage
+    localStorage.setItem('registrosMiri', JSON.stringify(registros));
+
+    // Mostrar mensaje de éxito y limpiar campos
+    alertMsg.style.display = 'block';
+    form.reset();
+    setTimeout(() => { alertMsg.style.display = 'none'; }, 4000);
+
+    // Actualizar tabla si el panel admin está abierto
+    cargarTablaAdmin();
+  });
+
+  // Lógica del Panel Administrador
+  const toggleAdminBtn = document.getElementById('toggleAdminBtn');
+  const adminPanel = document.getElementById('adminPanel');
+  const clearDataBtn = document.getElementById('clearDataBtn');
+
+  toggleAdminBtn.addEventListener('click', () => {
+    if (adminPanel.style.display === 'none') {
+      const password = prompt('Ingresa la contraseña de administrador:');
+      // Contraseña predeterminada: 1234
+      if (password === '1234') {
+        adminPanel.style.display = 'block';
+        cargarTablaAdmin();
+      } else if (password !== null) {
+        alert('Contraseña incorrecta');
+      }
+    } else {
+      adminPanel.style.display = 'none';
+    }
+  });
+
+  function cargarTablaAdmin() {
+    const tbody = document.querySelector('#asistentesTable tbody');
+    tbody.innerHTML = '';
+    const registros = JSON.parse(localStorage.getItem('registrosMiri')) || [];
+
+    if (registros.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;">Sin registros aún</td></tr>';
+      return;
+    }
+
+    registros.forEach(reg => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${reg.nombre}</td><td>${reg.personas}</td><td>${reg.hora}</td>`;
+      tbody.appendChild(tr);
+    });
+  }
+
+  clearDataBtn.addEventListener('click', () => {
+    if (confirm('¿Estás seguro de que deseas borrar todos los registros?')) {
+      localStorage.removeItem('registrosMiri');
+      cargarTablaAdmin();
+    }
+  });
+</script>
+
 </body>
 </html>
