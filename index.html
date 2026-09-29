@@ -203,6 +203,21 @@
       gap: 10px;
     }
 
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .input-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--purple);
+      margin-left: 4px;
+    }
+
     .form-input {
       width: 100%;
       padding: 12px 16px;
@@ -213,6 +228,8 @@
       outline: none;
       text-align: center;
       transition: border-color 0.2s;
+      background-color: #ffffff;
+      color: #333333;
     }
 
     .form-input:focus {
@@ -234,6 +251,7 @@
       box-shadow: 0 5px 0 #d9510a, 0 10px 20px rgba(255, 109, 33, 0.35);
       transition: all 0.2s ease;
       letter-spacing: 0.5px;
+      margin-top: 5px;
     }
 
     .btn-confirm:hover {
@@ -275,10 +293,11 @@
 </head>
 <body>
 
-  <!-- FORMULARIO OCULTO PARA QUE NETLIFY DETECTE LOS CAMPOS EN EL DESPLIEGUE -->
+  <!-- FORMULARIO OCULTO PARA DETECCIÓN EN NETLIFY -->
   <form name="asistencia-miri" netlify netlify-honeypot="bot-field" hidden>
     <input type="text" name="nombre" />
     <input type="number" name="acompanantes" />
+    <input type="time" name="hora_llegada" />
   </form>
 
   <div class="card">
@@ -334,13 +353,18 @@
       </a>
     </div>
 
-    <!-- FORMULARIO VISIBLE -->
+    <!-- FORMULARIO VISIBLE CON LOS 3 CAMPOS -->
     <form class="rsvp-form" id="rsvpForm" name="asistencia-miri" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="asistencia-miri" />
       
       <input type="text" name="nombre" class="form-input" placeholder="Tu nombre completo" required />
       <input type="number" name="acompanantes" class="form-input" placeholder="Acompañantes (número)" min="0" value="0" required />
       
+      <div class="input-group">
+        <label for="hora_llegada" class="input-label">Hora estimada de llegada:</label>
+        <input type="time" id="hora_llegada" name="hora_llegada" class="form-input" value="15:30" required />
+      </div>
+
       <button type="submit" class="btn-confirm" id="btnSubmit">CONFIRMA TU ASISTENCIA</button>
     </form>
 
