@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¡Fiesta Sorpresa! - El Cumpleaños de Miri</title>
+  <title>Fiesta Sorpresa de Miri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Bungee&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --orange: #ff6d21;
+      --fuchsia: #f657bd;
+      --purple: #c95cec;
+      --bg-color: #f7f5f8;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -12,205 +20,300 @@
     }
 
     body {
-      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      font-family: 'Fredoka', sans-serif;
+      background-color: var(--bg-color);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px;
+      overflow-x: hidden;
     }
 
-    .card-container {
+    .card {
       position: relative;
       width: 100%;
-      max-width: 420px;
+      max-width: 480px;
+      min-height: 100vh;
       background-color: #ffffff;
-      background-image: 
-        radial-gradient(#ff6b2b 20%, transparent 20%),
-        radial-gradient(#b24bf3 20%, transparent 20%);
-      background-size: 40px 40px;
-      background-position: 0 0, 20px 20px;
-      border-radius: 24px;
-      padding: 32px 20px;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
-      overflow: hidden;
+      padding: 40px 25px 40px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
       text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     }
 
-    .content-overlay {
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 20px;
-      padding: 24px 16px;
-      backdrop-filter: blur(3px);
+    @media (min-height: 750px) {
+      .card {
+        min-height: 90vh;
+        border-radius: 24px;
+        margin: 20px 0;
+      }
     }
 
+    /* ANIMACIÓN DEL SELLO TOP SECRET */
     .stamp-wrapper {
-      position: relative;
-      margin-bottom: 16px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      perspective: 1000px;
     }
 
     .top-secret-stamp {
       display: inline-block;
-      border: 4px dashed #ff5500;
-      color: #ff5500;
-      font-weight: 900;
-      font-size: 1.7rem;
-      letter-spacing: 2px;
-      padding: 6px 14px;
-      border-radius: 8px;
+      border: 5px dashed var(--orange);
+      color: var(--orange);
+      font-family: 'Bungee', cursive, sans-serif;
+      font-size: 36px;
+      letter-spacing: 3px;
+      padding: 6px 22px;
+      border-radius: 12px;
       text-transform: uppercase;
       transform: rotate(-12deg) scale(1);
-      animation: stampDrop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      opacity: 0;
+      animation: stampFall 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.3s forwards,
+                 stampImpact 0.2s ease-in-out 1.1s forwards;
     }
 
-    @keyframes stampDrop {
-      0% { opacity: 0; transform: rotate(-12deg) scale(3); }
-      100% { opacity: 1; transform: rotate(-12deg) scale(1); }
+    @keyframes stampFall {
+      0% {
+        opacity: 0;
+        transform: rotate(-25deg) scale(5) translateY(-300px);
+      }
+      80% {
+        opacity: 0.9;
+        transform: rotate(-12deg) scale(0.95) translateY(0);
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(-12deg) scale(1.05);
+      }
     }
 
+    @keyframes stampImpact {
+      0% { transform: rotate(-12deg) scale(1.05); }
+      50% { transform: rotate(-11deg) scale(0.98); }
+      100% { transform: rotate(-12deg) scale(1); }
+    }
+
+    /* TÍTULOS Y TEXTOS */
     .subtitle {
-      color: #c83bf8;
-      font-size: 1.4rem;
-      font-weight: 900;
-      margin-bottom: 8px;
+      color: var(--fuchsia);
+      font-size: 26px;
+      font-weight: 700;
+      margin: 10px 0 5px 0;
+      letter-spacing: 1px;
     }
 
-    .title {
-      color: #ff5500;
-      font-size: 1.9rem;
-      font-weight: 900;
+    .main-title {
+      color: var(--orange);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 32px;
       line-height: 1.15;
-      margin-bottom: 20px;
+      margin: 0 0 20px 0;
       text-transform: uppercase;
     }
 
-    .info-group {
-      margin-bottom: 20px;
+    .info-box {
+      margin: 10px 0;
     }
 
     .date-time {
-      color: #c83bf8;
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 8px;
+      color: var(--fuchsia);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .address {
-      color: #b030e0;
-      font-size: 0.95rem;
-      font-weight: 700;
+    .location {
+      color: var(--purple);
+      font-size: 16px;
+      font-weight: 600;
       line-height: 1.4;
-      margin-bottom: 12px;
+      max-width: 320px;
+      margin: 0 auto 15px auto;
     }
 
     .note {
-      color: #ff5500;
-      font-size: 0.9rem;
-      font-weight: 700;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 600;
       line-height: 1.3;
-      margin-bottom: 20px;
+      max-width: 300px;
+      margin: 0 auto 15px auto;
     }
 
-    /* Formulario de registro */
+    /* FORMULARIO DE REGISTRO INTEGRADO */
     .rsvp-form {
+      width: 100%;
+      max-width: 340px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       margin-top: 10px;
     }
 
     .form-input {
       width: 100%;
       padding: 12px 16px;
-      border: 2px solid #e0e0e0;
+      border: 2px solid #e2d8e5;
       border-radius: 12px;
-      font-size: 0.95rem;
+      font-size: 15px;
+      font-family: 'Fredoka', sans-serif;
       outline: none;
+      text-align: center;
       transition: border-color 0.2s;
     }
 
     .form-input:focus {
-      border-color: #ff5500;
+      border-color: var(--orange);
     }
 
-    .btn-submit {
+    .btn-confirm {
+      display: inline-block;
       width: 100%;
-      background: linear-gradient(180deg, #ff6b2b 0%, #f04e0a 100%);
+      background: var(--orange);
       color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: 1rem;
-      padding: 14px;
+      font-size: 16px;
+      padding: 15px 20px;
+      border-radius: 999px;
       border: none;
-      border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 6px 16px rgba(240, 78, 10, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-transform: uppercase;
+      box-shadow: 0 5px 0 #d9510a, 0 10px 20px rgba(255, 109, 33, 0.35);
+      transition: all 0.2s ease;
       letter-spacing: 0.5px;
     }
 
-    .btn-submit:active {
-      transform: scale(0.98);
+    .btn-confirm:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 #d9510a, 0 12px 22px rgba(255, 109, 33, 0.45);
     }
+
+    .btn-confirm:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #d9510a;
+    }
+
+    /* MENSAJE DE ÉXITO */
+    .success-msg {
+      display: none;
+      background-color: #eafaf1;
+      color: #27ae60;
+      border: 2px solid #27ae60;
+      padding: 15px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    /* ELEMENTOS DECORATIVOS SVGs */
+    .decor {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .ribbon-1 { top: 20px; left: 15px; width: 40px; height: 40px; }
+    .star-1 { top: 25px; right: 20px; width: 35px; height: 35px; }
+    .ribbon-2 { top: 40%; right: 10px; width: 45px; height: 45px; }
+    .star-2 { top: 45%; left: 10px; width: 40px; height: 40px; }
+    .star-3 { bottom: 25px; right: 20px; width: 40px; height: 40px; }
+    .ribbon-3 { bottom: 20px; left: 15px; width: 45px; height: 45px; }
   </style>
 </head>
 <body>
 
-  <div class="card-container">
-    <div class="content-overlay">
-      
-      <!-- Sello Animado -->
-      <div class="stamp-wrapper">
-        <div class="top-secret-stamp">TOP SECRET</div>
-      </div>
+  <div class="card">
+    
+    <!-- ELEMENTOS DECORATIVOS -->
+    <svg class="decor ribbon-1" viewBox="0 0 100 100">
+      <path d="M10,30 Q40,10 50,50 T90,70" fill="none" stroke="#ff6d21" stroke-width="12" stroke-linecap="round"/>
+    </svg>
+    <svg class="decor star-1" viewBox="0 0 100 100">
+      <polygon points="50,5 64,36 98,36 70,57 81,91 50,70 19,91 30,57 2,36 36,36" fill="#f657bd"/>
+    </svg>
+    <svg class="decor ribbon-2" viewBox="0 0 100 100">
+      <path d="M20,80 C40,20 60,90 80,20" fill="none" stroke="#c95cec" stroke-width="10" stroke-linecap="round"/>
+    </svg>
+    <svg class="decor star-2" viewBox="0 0 100 100">
+      <polygon points="50,5 64,36 98,36 70,57 81,91 50,70 19,91 30,57 2,36 36,36" fill="#c95cec" opacity="0.7"/>
+    </svg>
+    <svg class="decor star-3" viewBox="0 0 100 100">
+      <polygon points="50,5 64,36 98,36 70,57 81,91 50,70 19,91 30,57 2,36 36,36" fill="#f657bd"/>
+    </svg>
+    <svg class="decor ribbon-3" viewBox="0 0 100 100">
+      <path d="M10,20 Q50,90 90,30" fill="none" stroke="#f657bd" stroke-width="10" stroke-linecap="round"/>
+    </svg>
 
-      <!-- Encabezados -->
-      <h2 class="subtitle">¡FIESTA SORPRESA!</h2>
-      <h1 class="title">EL CUMPLEAÑOS<br>DE MIRI</h1>
-
-      <!-- Detalles -->
-      <div class="info-group">
-        <p class="date-time">Sábado 17 de octubre 3:30 p.m.</p>
-        <p class="address">
-          Camino de La Amistad 171, Campestre<br>
-          Aragón, GAM - CDMX
-        </p>
-        <p class="note">
-          Habrá comida y bebida, pero puedes llevar<br>lo que gustes
-        </p>
-      </div>
-
-      <!-- FORMULARIO CONECTADO A NETLIFY -->
-      <form class="rsvp-form" name="asistencia-miri" method="POST" data-netlify="true">
-        <!-- Input oculto obligatorio para procesar formularios en Netlify -->
-        <input type="hidden" name="form-name" value="asistencia-miri" />
-
-        <input 
-          type="text" 
-          name="nombre" 
-          class="form-input" 
-          placeholder="Tu nombre completo" 
-          required 
-        />
-
-        <input 
-          type="number" 
-          name="acompanantes" 
-          class="form-input" 
-          placeholder="¿Cuántos acompañantes vas a llevar?" 
-          min="0" 
-          value="0" 
-          required 
-        />
-
-        <button type="submit" class="btn-submit">
-          CONFIRMAR ASISTENCIA
-        </button>
-      </form>
-
+    <!-- SELLO CON ANIMACIÓN DE CAÍDA -->
+    <div class="stamp-wrapper">
+      <div class="top-secret-stamp">TOP SECRET</div>
     </div>
+
+    <!-- TEXTOS PRINCIPALES -->
+    <div class="subtitle">¡FIESTA SORPRESA!</div>
+    <h1 class="main-title">EL CUMPLEAÑOS<br>DE MIRI</h1>
+
+    <!-- INFORMACIÓN DEL EVENTO -->
+    <div class="info-box">
+      <div class="date-time">Sábado 17 de octubre 3:30 p.m.</div>
+      <div class="location">
+        Camino de La Amistad 171, Campestre Aragón, GAM - CDMX
+      </div>
+      <div class="note">
+        Habrá comida y bebida, pero puedes llevar lo que gustes
+      </div>
+    </div>
+
+    <!-- FORMULARIO DIRECTO A NETLIFY (SIN ERROR 404) -->
+    <form class="rsvp-form" id="rsvpForm" name="asistencia-miri" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="asistencia-miri" />
+      
+      <input type="text" name="nombre" class="form-input" placeholder="Tu nombre completo" required />
+      <input type="number" name="acompanantes" class="form-input" placeholder="Acompañantes (número)" min="0" value="0" required />
+      
+      <button type="submit" class="btn-confirm" id="btnSubmit">CONFIRMA TU ASISTENCIA</button>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      🎉 ¡Gracias! Tu asistencia ha sido registrada con éxito.
+    </div>
+
   </div>
+
+  <script>
+    const form = document.getElementById('rsvpForm');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      btnSubmit.innerText = 'ENVIANDO...';
+      btnSubmit.disabled = true;
+
+      const formData = new FormData(form);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      })
+      .catch((error) => {
+        alert('Hubo un error al guardar tu registro. Inténtalo de nuevo.');
+        btnSubmit.innerText = 'CONFIRMA TU ASISTENCIA';
+        btnSubmit.disabled = false;
+      });
+    });
+  </script>
 
 </body>
 </html>
