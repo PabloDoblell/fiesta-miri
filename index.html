@@ -10,6 +10,7 @@
       --orange: #ff6d21;
       --fuchsia: #f657bd;
       --purple: #c95cec;
+      --green: #25d366;
       --bg-color: #f7f5f8;
     }
 
@@ -37,7 +38,7 @@
       max-width: 480px;
       min-height: 100vh;
       background-color: #ffffff;
-      padding: 40px 25px 40px 25px;
+      padding: 40px 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -48,7 +49,7 @@
 
     @media (min-height: 750px) {
       .card {
-        min-height: 90vh;
+        min-height: 92vh;
         border-radius: 24px;
         margin: 20px 0;
       }
@@ -66,9 +67,9 @@
       border: 5px dashed var(--orange);
       color: var(--orange);
       font-family: 'Bungee', cursive, sans-serif;
-      font-size: 36px;
+      font-size: 34px;
       letter-spacing: 3px;
-      padding: 6px 22px;
+      padding: 6px 20px;
       border-radius: 12px;
       text-transform: uppercase;
       transform: rotate(-12deg) scale(1);
@@ -113,7 +114,7 @@
       font-weight: 800;
       font-size: 32px;
       line-height: 1.15;
-      margin: 0 0 20px 0;
+      margin: 0 0 15px 0;
       text-transform: uppercase;
     }
 
@@ -133,8 +134,8 @@
       font-size: 16px;
       font-weight: 600;
       line-height: 1.4;
-      max-width: 320px;
-      margin: 0 auto 15px auto;
+      max-width: 340px;
+      margin: 0 auto 12px auto;
     }
 
     .note {
@@ -142,8 +143,55 @@
       font-size: 15px;
       font-weight: 600;
       line-height: 1.3;
-      max-width: 300px;
+      max-width: 320px;
       margin: 0 auto 15px auto;
+    }
+
+    /* BOTONES DE ACCIÓN (MAPA Y WHATSAPP) */
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 340px;
+      margin-bottom: 15px;
+    }
+
+    .btn-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-map {
+      background-color: #f0f4f8;
+      color: var(--purple);
+      border: 2px solid var(--purple);
+    }
+
+    .btn-map:hover {
+      background-color: var(--purple);
+      color: #ffffff;
+    }
+
+    .btn-whatsapp {
+      background-color: #e8f8ef;
+      color: #128c7e;
+      border: 2px solid var(--green);
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--green);
+      color: #ffffff;
     }
 
     /* FORMULARIO DE REGISTRO INTEGRADO */
@@ -153,7 +201,6 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-top: 10px;
     }
 
     .form-input {
@@ -212,7 +259,7 @@
       margin-top: 10px;
     }
 
-    /* ELEMENTOS DECORATIVOS SVGs */
+    /* DECORATIVOS SVGs */
     .decor {
       position: absolute;
       pointer-events: none;
@@ -230,7 +277,7 @@
 
   <div class="card">
     
-    <!-- ELEMENTOS DECORATIVOS -->
+    <!-- ELEMENTOS DECORATIVOS SVGs -->
     <svg class="decor ribbon-1" viewBox="0 0 100 100">
       <path d="M10,30 Q40,10 50,50 T90,70" fill="none" stroke="#ff6d21" stroke-width="12" stroke-linecap="round"/>
     </svg>
@@ -250,16 +297,16 @@
       <path d="M10,20 Q50,90 90,30" fill="none" stroke="#f657bd" stroke-width="10" stroke-linecap="round"/>
     </svg>
 
-    <!-- SELLO CON ANIMACIÓN DE CAÍDA -->
+    <!-- SELLO ANIMADO -->
     <div class="stamp-wrapper">
       <div class="top-secret-stamp">TOP SECRET</div>
     </div>
 
-    <!-- TEXTOS PRINCIPALES -->
+    <!-- ENCABEZADOS -->
     <div class="subtitle">¡FIESTA SORPRESA!</div>
     <h1 class="main-title">EL CUMPLEAÑOS<br>DE MIRI</h1>
 
-    <!-- INFORMACIÓN DEL EVENTO -->
+    <!-- DETALLES DE LA FIESTA -->
     <div class="info-box">
       <div class="date-time">Sábado 17 de octubre 3:30 p.m.</div>
       <div class="location">
@@ -270,7 +317,20 @@
       </div>
     </div>
 
-    <!-- FORMULARIO DIRECTO A NETLIFY (SIN ERROR 404) -->
+    <!-- BOTONES DE UBICACIÓN Y WHATSAPP -->
+    <div class="action-buttons">
+      <!-- Reemplaza las coordenadas o enlace según la ubicación exacta en Google Maps -->
+      <a href="https://maps.google.com/?q=Camino+de+La+Amistad+171,+Campestre+Aragón,+GAM,+CDMX" target="_blank" class="btn-secondary btn-map">
+        📍 VER UBICACIÓN EN GOOGLE MAPS
+      </a>
+      
+      <!-- Reemplaza el 52XXXXXXXXXX con tu número de teléfono real (con clave de país) -->
+      <a href="https://wa.me/525500000000?text=Hola,%20tengo%20una%20duda%20sobre%20la%20fiesta%20sorpresa%20de%20Miri" target="_blank" class="btn-secondary btn-whatsapp">
+        💬 ESCRIBIR AL ANFITRIÓN POR WHATSAPP
+      </a>
+    </div>
+
+    <!-- FORMULARIO INTEGRADO A NETLIFY -->
     <form class="rsvp-form" id="rsvpForm" name="asistencia-miri" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="asistencia-miri" />
       
@@ -308,7 +368,7 @@
         successMsg.style.display = 'block';
       })
       .catch((error) => {
-        alert('Hubo un error al guardar tu registro. Inténtalo de nuevo.');
+        alert('Hubo un error al guardar tu registro. Por favor inténtalo nuevamente.');
         btnSubmit.innerText = 'CONFIRMA TU ASISTENCIA';
         btnSubmit.disabled = false;
       });
